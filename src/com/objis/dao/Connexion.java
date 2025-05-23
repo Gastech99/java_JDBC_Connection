@@ -1,6 +1,8 @@
 package com.objis.dao;
 
+import java.io.FileInputStream;
 import java.sql.*;
+import java.util.Properties;
 
 public class Connexion {
 
@@ -15,11 +17,16 @@ public class Connexion {
 
     public Connexion(){
         try {
+
+            Properties properties = new Properties();
+            FileInputStream data = new FileInputStream("src/data.properties");
+            properties.load(data);
+
             // Chargement du driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName(properties.getProperty("driver"));
 
             // Etablissement de la connexion
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_conge?useSSL=false&serverTimezone=UTC", "root", "");
+            con = DriverManager.getConnection(properties.getProperty("url"), properties.getProperty("user"), properties.getProperty("password"));
             st = con.createStatement();
 
             System.out.println("✅ Connected success");
@@ -46,4 +53,9 @@ public class Connexion {
         }
         return rs;
     }
+
+    public Connection getConnection() {
+        return this.con;
+    }
+
 }

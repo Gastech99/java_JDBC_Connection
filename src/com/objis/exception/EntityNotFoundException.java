@@ -27,4 +27,9 @@ public class EntityNotFoundException extends RuntimeException{
         super(message, cause, enableSuppression, writableStackTrace);
         this.errorCode = errorCode;
     }
+
+    public ErrorCodes getErrorCode() {
+        return errorCode;
+    }
+
 }

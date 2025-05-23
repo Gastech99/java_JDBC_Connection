@@ -1,0 +1,10 @@
+- Respecter le nommage
+- factoriser la connexion à la base de données (si possible)
+- Ne pas exposer les informations sensibles (password, user, ...) utiliser par exemple i18n pour le faire.
+-  Utiliser l’outil Log4j ou autre pour gérer l’affichage. ( cette outil permet de préciser les types d'informations)
+- Utiliser les prepareStatement
+- gérer les exceptions
+- diviser le diagramme de classe en deux ( un diagramme pour les entités et un diagramme pour les services).
+- Faire des recherches s
+- Stream
+     - Expression lambda.
